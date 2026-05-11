@@ -1,0 +1,77 @@
+# ============================================================
+# HARD NDT — Master Configuration
+# ============================================================
+
+paths:
+  # Paths can be absolute (e.g., C:/videos/scan.mp4) or relative to the repository root.
+  video_input: "assets/scan_001.mp4"
+  external_audio: "assets/scan_001.wav" # Auto-detected if omitted
+  mesh_output: "mesh_data.npz"
+ 
+audio:
+  # Bandpass filter bounds (Hz) — isolates hollow resonance, ignores hum/hiss
+  bandpass_low_hz: 100.0
+  bandpass_high_hz: 800.0
+  filter_order: 5
+
+  # Transient slicing: skip T → T+10ms (impact noise), analyse T+10ms → T+150ms (decay tail)
+  tail_start_offset_ms: 10.0
+  tail_end_offset_ms: 150.0
+
+  # Onset detection — calibration pass (5 slow knocks, ~1s apart)
+  calibration_onset_pre_max: 0.5
+  calibration_onset_post_max: 0.5
+  calibration_onset_pre_avg: 0.5
+  calibration_onset_post_avg: 0.5
+  calibration_onset_delta: 0.2
+  calibration_min_gap_seconds: 0.8
+  calibration_knock_count: 5
+
+  # Onset detection — grid scan pass (~0.5s between taps)
+  grid_onset_pre_max: 0.3
+  grid_onset_post_max: 0.3
+  grid_onset_delta: 0.2
+  grid_min_gap_seconds: 0.4
+
+  # Ambient noise check — RMS threshold below which the room is "quiet enough"
+  ambient_noise_rms_threshold: 0.025
+  ambient_noise_sample_seconds: 2.0
+
+vision:
+  # HSV color bounds for the yellow tape marker
+  hsv_lower: [20, 100, 100]
+  hsv_upper: [35, 255, 255]
+
+  # Morphological kernel size for blob smoothing
+  morph_kernel_size: 15
+
+  # Dilation iterations after MORPH_CLOSE
+  dilation_iterations: 2
+
+  # Pixel offset below blob centroid to estimate the floor-contact tip
+  tip_y_offset_px: 50
+
+  # Reference photo for auto-calibrating HSV bounds (overrides manual hsv_lower/upper)
+  reference_photo_path: "D:/Projects/acoustic_tomography/assets/tape_color_ref.jpg"
+
+fusion:
+  # Hollowness metric thresholds for normalization
+  solid_thresh: 0.005
+  hollow_thresh: 0.025
+
+  # Maximum time gap (seconds) between audio event and visual frame to count as a match
+  time_tolerance_seconds: 0.08
+
+  # Offset subtracted from audio timestamp when searching for the matching video frame.
+  # Accounts for the speed-of-sound delay so the tracker locks onto the physical strike,
+  # rather than the stick's rebound.
+  visual_sample_delay_seconds: 0.050
+
+  # Interpolation grid resolution (number of points along each axis)
+  grid_resolution: 100
+
+renderer:
+  z_depth_pixels: 140.0
+  surface_opacity: 0.78
+  surface_lift_pixels: 2.0
+  window_size: [1400, 900]

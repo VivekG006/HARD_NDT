@@ -1,0 +1,39 @@
+# ============================================================
+# Hollowness using Acoustic Relative Detection (HARD, NDT)
+# ============================================================
+
+# Python virtual environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE and Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Project specific artifacts / Generated data
+mesh_data.npz
+
+# Large media files (Too large for GitHub)
+# A single sample scan should be manually kept if needed.
+assets/*.mp4
+assets/*.wav
+
+# Temporary / OS / Debug files
+temp_acoustic_data.wav
+*extracted.wav
+*.log
+
+# AntiGravity artifacts (AI assisted development files)
+*.resolved
