@@ -1,6 +1,6 @@
 # System Architecture
 
-The HARD NDT (Hollowness using Acoustic Relative Detection, Non-Destructive Testing) pipeline is designed as a modular, decoupled data processing system. 
+The HARD, NDT (Hollowness using Acoustic Relative Detection, Non-Destructive Testing) pipeline is designed as a modular, decoupled data processing system. 
 
 It was developed through an iterative AI-assisted workflow, which deeply influenced its strict separation of concerns. By keeping the modules isolated, we were able to independently prompt the AI to solve specific domain problems (e.g., OpenCV spatial mapping vs. PyVista 3D rendering) without cross-contaminating the logic.
 
@@ -23,7 +23,7 @@ The mathematical core of the acoustic analysis.
 ### 3. `VisionTracker`
 The spatial mapping engine.
 *   Uses OpenCV to decode the video frame-by-frame.
-*   Applies an HSV color mask to isolate the yellow tracking tape on the acoustic probe.
+*   Applies an HSV color mask to isolate the yellow (default) tracking tape on the acoustic probe.
 *   Performs morphological operations (erosion/dilation) and contour extraction to find the centroid of the tape.
 *   Applies a configurable Y-pixel offset to estimate the exact point where the stick contacts the floor.
 

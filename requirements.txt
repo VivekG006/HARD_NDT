@@ -16,8 +16,7 @@ librosa==0.11.0
 soundfile==0.13.1
 audioread==3.1.0
 soxr==1.1.0
-# NOTE: audioop is still in the Python 3.11 stdlib.
-# audioop-lts is NOT needed and must not be installed.
+
 
 # librosa internals
 lazy-loader==0.5
@@ -74,5 +73,3 @@ pyerfa==2.0.1.5
 
 # --- scikit-learn (used indirectly by librosa onset/beat modules) ---
 scikit-learn==1.8.0
-
-pillow-heif==0.21.0

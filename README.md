@@ -2,7 +2,7 @@
 
 ![3D Model Demo](docs/images/demo_model.gif)
 
-**HARD NDT** is an experimental Acoustic Surface Tomography pipeline designed to detect "hollowness" in solid surfaces (like concrete) using audio transients and computer vision.
+**HARD, NDT** is an experimental Acoustic Surface Tomography pipeline designed to detect "relative hollowness" in solid surfaces (like concrete) using audio transients and computer vision.
 
 By striking a surface with a physical probe, the system analyzes the resonant decay of the impact. It then uses a camera to track the physical location of the strike, mapping the acoustic properties into a 3D topographic heat map using PyVista.
 
@@ -58,7 +58,7 @@ Camera Video Stream                                       External High-Fidelity
                            └─ Z-Axis Topographic Deformation
 ```
 
-For more details on why the codebase is structured this way, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). For the exact mathematical formulas governing the spatial and temporal synchronizations, see [docs/math_explanation.tex](docs/math_explanation.tex) or [docs/math_explanation.md](docs/math_explanation.md).
+For more details on why the codebase is structured this way, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). For the exact mathematical formulas governing the spatial and temporal synchronizations, see [docs/math_explanation.md](docs/math_explanation.md).
 
 ---
 
@@ -124,15 +124,15 @@ Future improvements could drastically increase the fidelity of the pipeline:
 This project is currently tested primarily on:
 - **Python 3.11.9 (Recommended)**
 
-Versions outside the 3.10–3.12 range may fail due to compatibility issues with `PyVista`, `VTK`, and related C-bindings (`cffi`). If installation fails, first verify your Python version before debugging anything else.
+Versions outside the 3.10–3.13 range may fail due to compatibility issues with `PyVista`, `VTK`, and related C-bindings (`cffi`). If installation fails, first verify your Python version before debugging anything else.
 
 ### Installation
 
 Clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/yourusername/acoustic_tomography.git
-cd acoustic_tomography
+git clone https://github.com/VivekG006/HARD_NDT.git
+cd HARD_NDT
 python -m venv .venv
 
 # Windows
@@ -144,6 +144,9 @@ pip install -r requirements.txt
 ```
 
 *(Note: `ffmpeg` and `ffprobe` must be installed globally on your system PATH).*
+- **Windows:** `winget install ffmpeg`
+- **Linux:** `sudo apt install ffmpeg`
+- **macOS:** `brew install ffmpeg`
 
 ### Usage
 

@@ -51,8 +51,7 @@ vision:
   # Pixel offset below blob centroid to estimate the floor-contact tip
   tip_y_offset_px: 50
 
-  # Reference photo for auto-calibrating HSV bounds (overrides manual hsv_lower/upper)
-  reference_photo_path: "D:/Projects/acoustic_tomography/assets/tape_color_ref.jpg"
+
 
 fusion:
   # Hollowness metric thresholds for normalization

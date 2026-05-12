@@ -1,6 +1,6 @@
-# HARD NDT Pipeline: Mathematical Reference
+# HARD, NDT: Mathematical Reference
 
-This document serves as the mathematical foundation for the HARD NDT Acoustic Tomography pipeline. It details the exact formulas and mappings used to translate an audio recording and an MP4 video into a 3D topographic heat map.
+This document serves as the mathematical foundation for the HARD, NDT pipeline. It details the exact formulas and mappings used to translate an audio recording and an MP4 video into a 3D topographic heat map.
 
 ## Acoustic DSP (Spectral Hollowness)
 
@@ -69,4 +69,4 @@ Up_{Vector} &= (0.0, \quad 0.0, \quad 1.0)
 \end{aligned}
 $$
 
-*(Because $Y$ increases downwards, adding to $Y$ pushes the camera to the physical bottom edge).*
+*(Because `Y` increases downwards, adding to `Y` pushes the camera to the physical bottom edge).*

@@ -9,8 +9,6 @@ package level so main.py can do clean top-level imports:
     from src import VideoSourceError, SensorDesyncError, ...
 """
 
-__version__ = "3.0.0"
-__author__  = "HARD NDT Project"
 
 # Pipeline classes
 from src.audio_dsp       import AudioDSP

@@ -26,7 +26,7 @@ def main() -> None:
     setup_logging()
     log = logging.getLogger("main")
 
-    parser = argparse.ArgumentParser(description="HARD NDT Acoustic Tomography Pipeline")
+    parser = argparse.ArgumentParser(description="HARD, NDT. Acoustic Tomography Pipeline")
     parser.add_argument("video", nargs="?", help="Path to the input .mp4 scan file (optional if set in config)")
     parser.add_argument("--audio", help="Optional path to external high-fidelity audio (.wav)")
     parser.add_argument("--config", default="config.yaml", help="Path to config YAML")
